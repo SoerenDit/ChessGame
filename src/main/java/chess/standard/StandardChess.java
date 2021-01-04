@@ -1,6 +1,7 @@
 package main.java.chess.standard;
 
 import main.java.chess.framework.Chess;
+import main.java.chess.framework.Pieces;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,11 +37,13 @@ public class StandardChess implements Chess {
     }
 
     private boolean isMoveValid(String from, String to) {
-        Boolean isPieceOnFrom = board.get(from) != null;
-        if (isPieceOnFrom) {
-            return true;
-        }
-        return false;
+        String piece = board.get(from);
+
+        if (piece == null) return false;
+
+        
+
+        return true;
     }
 
     @Override

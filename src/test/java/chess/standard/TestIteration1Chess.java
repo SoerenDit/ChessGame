@@ -36,7 +36,14 @@ public class TestIteration1Chess {
         game.moveUnit("a2","a3");
         assertThat(game.getPieceAt("a2"),is(nullValue()));
         assertThat(game.getPieceAt("a3"),is(PAWN));
+    }
 
+    @Test
+    public void pawnsCanOnlyMoveOneSquare() {
+        game.moveUnit("a2","a3");
+        game.moveUnit("a3","a5");
+        assertThat(game.getPieceAt("a3"),is(PAWN));
+        assertThat(game.getPieceAt("a5"),is(nullValue()));
     }
 
 
