@@ -1,22 +1,22 @@
 package main.java.chess.standard;
 
 import main.java.chess.framework.Chess;
-import main.java.chess.framework.Pieces;
+import main.java.chess.framework.Position;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static main.java.chess.framework.Pieces.PAWN;
+import static main.java.chess.framework.Player.WHITE;
 
 /*
 Iteration 1
-A chess board with 16 white pawns and 16 black pawns, all being able to move forward 1 step at the time,
-until they meet an opponent pawn.
-White wins after 10 turns.
+A chess board with 8 white pawns, all being able to move forward 1 step at the time.
+White wins after when a pawn hits row H.
 
  */
 public class StandardChess implements Chess {
-    Map<String, String> board;
+    Map<Position, String> board;
 
     public static void main(String[] args) {
         // write your code here
@@ -24,11 +24,17 @@ public class StandardChess implements Chess {
 
     public StandardChess() {
         board = new HashMap<>();
-        board.put("a2", PAWN);
+        board.put(new Position(0,1), PAWN);
     }
 
+    /**
+     * If the move is valid, the piece is moved.
+     * Precondition: Only valid positions (within the board).
+     * @param from the position the piece has now
+     * @param to the position the piece wants to move to
+     */
     @Override
-    public void moveUnit(String from, String to) {
+    public void moveUnit(Position from, Position to) {
         if (isMoveValid(from, to)) {
             String piece = board.get(from);
             board.remove(from);
@@ -36,18 +42,27 @@ public class StandardChess implements Chess {
         }
     }
 
-    private boolean isMoveValid(String from, String to) {
+    private boolean isMoveValid(Position from, Position to) {
         String piece = board.get(from);
 
         if (piece == null) return false;
 
-        
+        if(to.getRow() != from.getRow()+1) return false;
+
+        if(to.getColumn() != from.getColumn()) return false;
 
         return true;
     }
 
     @Override
-    public String getPieceAt(String position) {
+    public String getPieceAt(Position position) {
         return board.get(position);
+    }
+
+    // Faking it
+    @Override
+    public String getWinner() {
+        if(board.get(new Position(0,7)) != null) return WHITE;
+        return null;
     }
 }
