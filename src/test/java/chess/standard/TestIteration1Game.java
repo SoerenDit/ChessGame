@@ -1,7 +1,7 @@
 package test.java.chess.standard;
 
 import main.java.chess.framework.Position;
-import main.java.chess.standard.StandardChess;
+import main.java.chess.standard.StandardGame;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,12 +10,12 @@ import static main.java.chess.framework.Player.WHITE;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class TestIteration1Chess {
-    private StandardChess game;
+public class TestIteration1Game {
+    private StandardGame game;
 
     @BeforeEach
     public void setup() {
-        game = new StandardChess();
+        game = new StandardGame();
     }
 
 

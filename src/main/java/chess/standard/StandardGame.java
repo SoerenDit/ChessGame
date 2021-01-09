@@ -1,7 +1,8 @@
 package main.java.chess.standard;
 
-import main.java.chess.framework.Chess;
+import main.java.chess.framework.Game;
 import main.java.chess.framework.Position;
+import main.java.chess.view.ChessDrawing;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,14 +16,14 @@ A chess board with 8 white pawns, all being able to move forward 1 step at the t
 White wins after when a pawn hits row H.
 
  */
-public class StandardChess implements Chess {
+public class StandardGame implements Game {
     Map<Position, String> board;
 
     public static void main(String[] args) {
         // write your code here
     }
 
-    public StandardChess() {
+    public StandardGame() {
         board = new HashMap<>();
         board.put(new Position(0,1), PAWN);
     }
@@ -64,5 +65,10 @@ public class StandardChess implements Chess {
     public String getWinner() {
         if(board.get(new Position(0,7)) != null) return WHITE;
         return null;
+    }
+
+    @Override
+    public void addObserver(ChessDrawing chessDrawing) {
+
     }
 }
