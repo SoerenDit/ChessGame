@@ -1,7 +1,5 @@
 package main.java.chess.framework;
 
-import main.java.chess.view.ChessDrawing;
-
 public interface Game {
     void moveUnit(Position from, Position to);
 
@@ -9,5 +7,4 @@ public interface Game {
 
     String getWinner();
 
-    void addObserver(ChessDrawing chessDrawing);
 }

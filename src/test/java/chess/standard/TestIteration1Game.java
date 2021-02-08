@@ -71,6 +71,4 @@ public class TestIteration1Game {
         assertThat(game.getWinner(),is(WHITE));
 
     }
-
-
 }

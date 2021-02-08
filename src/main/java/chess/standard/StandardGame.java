@@ -2,7 +2,6 @@ package main.java.chess.standard;
 
 import main.java.chess.framework.Game;
 import main.java.chess.framework.Position;
-import main.java.chess.view.ChessDrawing;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -67,8 +66,5 @@ public class StandardGame implements Game {
         return null;
     }
 
-    @Override
-    public void addObserver(ChessDrawing chessDrawing) {
 
-    }
 }
